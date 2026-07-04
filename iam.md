@@ -9,7 +9,7 @@
 
 ---
 
-![Image](http://nextwork.ai/mischievous_gray_loyal_tuke/uploads/aws-security-iam_1c864649?v=2)
+![Image](http://nextwork.ai/mischievous_gray_loyal_tuke/uploads/aws-security-iam_1c864649)
 
 ---
 
