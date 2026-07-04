@@ -73,7 +73,7 @@ In a JSON policy, the Effect attribute specifies whether the permission is allow
 
 ## My JSON Policy
 
-![Image](aws-security-iam_json-policy.jpeg)
+![Image](http://nextwork.ai/mischievous_gray_loyal_tuke/uploads/aws-security-iam_1c864649?v=2)
 
 ---
 
