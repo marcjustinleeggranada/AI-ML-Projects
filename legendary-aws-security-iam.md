@@ -41,7 +41,7 @@ Tags are key-value pairs that assign custom metadata to your AWS resources. They
 
 ### My tag configuration
 
-The tags I’ve used on my EC2 instances are called Name and Env. The values I’ve assigned for my instances are nextwork-dev-Granada and development for the development environment, and nextwork-prod-Granada and production for the production environment.
+The tags I've used on my EC2 instances are called Name and Env. The values I've assigned for my instances are nextwork-dev-Granada and development for the development environment, and nextwork-prod-Granada and production for the production environment.
 
 ![Image](http://nextwork.ai/mischievous_gray_loyal_tuke/uploads/aws-security-iam_2e0e5a5d)
 
@@ -59,11 +59,11 @@ IAM policies are JSON documents that define permissions by specifying what actio
 
 ### The policy I set up
 
-For this project, I’ve set up a policy using JSON instead of the visual editor. I chose this method because pasting a pre-defined JSON policy document allows me to easily configure precise security parameters, such as restricting Amazon EC2 actions to only apply when resources have a specific development tag.
+For this project, I've set up a policy using JSON instead of the visual editor. I chose this method because pasting a pre-defined JSON policy document allows me to easily configure precise security parameters, such as restricting Amazon EC2 actions to only apply when resources have a specific development tag.
 
 ### Policy effect
 
-I’ve created an IAM policy that grants full Amazon EC2 management permissions only when the resource has an Env tag value of development. It also allows viewing all instances while strictly denying the ability to create or delete resource tags so users cannot bypass these security restrictions.
+I've created an IAM policy that grants full Amazon EC2 management permissions only when the resource has an Env tag value of development. It also allows viewing all instances while strictly denying the ability to create or delete resource tags so users cannot bypass these security restrictions.
 
 ### Understanding Effect, Action, and Resource
 
@@ -73,7 +73,7 @@ In a JSON policy, the Effect attribute specifies whether the permission is allow
 
 ## My JSON Policy
 
-![Image](http://nextwork.ai/mischievous_gray_loyal_tuke/uploads/aws-security-iam_1c864649)
+![Image](aws-security-iam_json-policy.jpeg)
 
 ---
 
