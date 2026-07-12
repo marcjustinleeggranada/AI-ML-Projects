@@ -51,7 +51,23 @@ In this step, I'm merging my pull request on GitHub so that I can integrate my n
 
 ### Merge strategy and auto-closing the Issue
 
-I merged using the default merge commit strategy on GitHub, and Issue #1 closed automatically because it was linked directly to my pull request using a closing keyword in the description.
+I merged using the default merge commit strategy on GitHub, and Issue #2 closed automatically because it was linked directly to my pull request using a closing keyword in the description.
+
+**Reference links:** the repository and its issues/PRs for this project have since been deleted, so the original links are no longer available.
+
+### Key commands used in this stage
+
+```
+git checkout -b feature/2-add-resources-section
+git add .
+git commit -m "Add Resources section to learning log"
+git push -u origin feature/2-add-resources-section
+# ...after PR is approved and merged on GitHub...
+git checkout main
+git pull origin main
+git branch -d feature/2-add-resources-section
+git push origin --delete feature/2-add-resources-section
+```
 
 ## Squash Merging a Second Feature Branch
 
@@ -63,6 +79,29 @@ In this step, I'm creating a second GitHub Issue for my next feature so that I c
 
 ![Image](https://nextwork.ai/mischievous_gray_loyal_tuke/uploads/3ac00a14-cbfc-476a-9a2f-2d9b678880b9_0vuuamlc)
 
+**Reference links:** as above, this repository has since been deleted, so no live links are available.
+
+### Key commands used in this stage
+
+```
+git checkout -b feature/3-second-feature
+git commit -m "First small commit"
+git commit -m "Second small commit"
+git commit -m "Third small commit"
+git push -u origin feature/3-second-feature
+# ...merged via "Squash and merge" on GitHub, then locally...
+git checkout main
+git pull origin main
+git branch -d feature/3-second-feature
+```
+
+### Merge commit vs. squash merge: when I'd use each
+
+- **Merge commit** (used for the first feature): keeps every individual commit and preserves the exact history of how the branch evolved. I'd reach for this on longer-lived branches or when a reviewer might want to see the step-by-step progression later — for example, during debugging or a detailed code review.
+- **Squash merge** (used for the second feature): collapses all the small, messy, or "WIP" commits into one clean commit on `main`. I'd use this for short-lived branches with noisy commit histories, so the main branch log stays readable and each entry maps to one complete feature or fix rather than every intermediate save point.
+
+In a real team setting, the choice usually comes down to a repo-wide convention rather than a per-PR decision — most teams pick one default strategy (often squash) to keep `main`'s history consistent, and only deviate for exceptions like release branches.
+
 ## Adding a Pull Request Template for Every Future PR
 
 ![Image](https://nextwork.ai/mischievous_gray_loyal_tuke/uploads/3ac00a14-cbfc-476a-9a2f-2d9b678880b9_03nvz0yg)
@@ -70,6 +109,15 @@ In this step, I'm creating a second GitHub Issue for my next feature so that I c
 ### Why the template must live on the default branch
 
 In this project extension, I learned that the template must be on the default branch because GitHub only scans the repository's default branch to detect and render configuration files like a pull request template. If the template file only exists on an unmerged feature branch, the platform will not find it, and it will fail to auto-populate when users create a new pull request.
+
+## What I'd Do Differently on a Real Team
+
+This project covered the mechanics of the workflow well, but a few things would look different on an actual team:
+
+- **Merge conflicts would be unavoidable**, not optional — with multiple people branching off `main` at the same time, I'd expect to resolve conflicts regularly rather than as an edge case. *(This run-through didn't hit a real conflict, so I'm not documenting a resolution here — I'd rather add a genuine example from a future project than fabricate one.)*
+- **PR reviews would involve other people**, with required approvals and CI checks passing before merge, not just a self-review.
+- **Branch naming and commit conventions** would follow a shared team standard (e.g. `feat/`, `fix/`, Conventional Commits) rather than whatever felt convenient solo.
+- **The final repository history** would normally be worth screenshotting or linking to directly in a post like this — in this case the repository has since been deleted, so I don't have that artifact anymore, but I'd capture it before tearing down a repo next time.
 
 ## Reflections and Key Takeaways
 
