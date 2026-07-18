@@ -72,7 +72,7 @@ The fix, once identified, was straightforward: swap `{{ .ConfirmationURL }}` for
  
 The deployed site threw `Your project's URL and API key are required to create a Supabase client!` — despite everything working fine locally. The cause, once traced: Supabase's dashboard now labels what used to be called the "anon key" as the **"publishable key."** I'd copied it under that newer name into Vercel, but the app's code was still reading `process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY` — a name that no longer existed in the environment. Same key, different label, silently broken.
  
-![Mismatched environment variable name in Vercel](04-vercel-env-var-mixup.png)
+![Mismatched environment variable name in Vercel](004-vercel-env-var-mixup.png)
  
 **Fix:** deleted the mismatched variable and re-added it under the exact name the code expected, then redeployed.
  
